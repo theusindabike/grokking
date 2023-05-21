@@ -8,6 +8,25 @@ class SomeKindOfSortingExercicies(unittest.TestCase):
 
         self.assertEqual(sort_by([3, 5, 1, 4, 7]), [1, 3, 4, 5, 7])
 
+    def test_highest_3_elements(self):
+        def n_highest_elements(list_1: list[int]) -> list[int]:
+            first, second, third = 0, 0, 0
+
+            for e in list_1:
+                if e > first:
+                    third = second
+                    second = first
+                    first = e
+                elif e > second:
+                    third = second
+                    second = e
+                elif e > third:
+                    third = e
+
+            return [first, second, third]
+
+        self.assertEqual(n_highest_elements([3, 5, 1, 4, 7]), [7, 5, 4])
+
     def test_n_highest_elements(self):
         def n_highest_elements(list_1: list[int]) -> list[int]:
             first, second, third = 0, 0, 0
