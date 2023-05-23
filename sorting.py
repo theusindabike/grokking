@@ -3,8 +3,21 @@ import unittest
 
 class SomeKindOfSortingExercicies(unittest.TestCase):
     def test_sort_by(self):
-        def sort_by(list_1: list[int]) -> list[int]:
-            return None
+        def sort_by(_list: list[int]) -> list[int]:
+            less, equal, greater = [], [], []
+
+            if len(_list) > 1:
+                pivot = _list[0]
+                for e in _list:
+                    if e < pivot:
+                        less.append(e)
+                    elif e == pivot:
+                        equal.append(e)
+                    elif e > pivot:
+                        greater.append(e)
+                return sort_by(less) + equal + sort_by(greater)
+            else:
+                return _list
 
         self.assertEqual(sort_by([3, 5, 1, 4, 7]), [1, 3, 4, 5, 7])
 
