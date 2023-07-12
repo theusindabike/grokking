@@ -36,7 +36,8 @@ void main() {
   // print(e.realWorldSum([1, 2, 3], [4, 5, 6]));
   // print(e.realWorldSum([8, 7, 2], [5, 1, 1]));
 
-  print(e.mostFrequentLetter('ertyuikmnbvdtyujksdfffas'));
+  print(e.mostFrequentLetter(
+      'ertyuikmnbvdtyguashdusgayvfyasbdasjjjjjjjjjjujksdfffas'));
 }
 
 class Exercicies {
@@ -166,5 +167,22 @@ class Exercicies {
     return result;
   }
 
-  Object? mostFrequentLetter(String s) {}
+  String mostFrequentLetter(String letters) {
+    Map<String, int> frequency = {};
+    String l, mostFrequentLetter = '';
+    int highestFrequency = 0;
+
+    for (int i = 0; i < letters.length; i++) {
+      l = letters[i];
+      frequency[l] = 1 + (frequency[l] ?? 0);
+
+      if (frequency[l]! > highestFrequency) {
+        highestFrequency = frequency[l]!;
+        mostFrequentLetter = l;
+      }
+    }
+    print(frequency);
+    print(highestFrequency);
+    return mostFrequentLetter;
+  }
 }
