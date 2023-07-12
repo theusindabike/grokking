@@ -8,7 +8,7 @@
             "name": "Dart & Flutter",
             "request": "launch",
             "type": "dart",
-            "program": "5andar.dart",
+            "program": "dart/5andar.dart",
         }
     ]
 }
